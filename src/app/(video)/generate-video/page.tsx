@@ -12,9 +12,9 @@ const GenerateVideoPage = () => {
 
     const [resultUrl,setResultUrl] = useState<string>("")
 
-    const audioDuration = localStorage.getItem("audioDuration")
-    const audioUrl = localStorage.getItem("audioUrl")
-    const summarizeContent = localStorage.getItem("summarize")
+    const audioDuration = typeof window !== 'undefined' ? localStorage.getItem("audioDuration") : null;
+    const audioUrl = typeof window !== 'undefined' ? localStorage.getItem("audioUrl") : null;
+    const summarizeContent = typeof window !== 'undefined' ? localStorage.getItem("summarize") : null;
 
     const [minutesReadTime,setMinutesReadTime] = useState<number>(0)
     const [timeDividedPerFor,setTimeDividedPerFour] = useState<number>(0)
