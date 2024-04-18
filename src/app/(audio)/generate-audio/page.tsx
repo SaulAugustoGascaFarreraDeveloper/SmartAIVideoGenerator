@@ -22,7 +22,7 @@ const GenerateAudio = () => {
 
   let endpoint = ""
 
-  let summarizeContent = localStorage.getItem("summarize")
+  let summarizeContent = typeof window !== 'undefined' ? localStorage.getItem("summarize") : null
 
   useEffect(() => {
 
@@ -82,8 +82,17 @@ const GenerateAudio = () => {
 
 
     
-  localStorage.setItem("audioUrl",url)
-  localStorage.setItem("audioDuration",duration.toString())
+  useEffect(() => {
+
+    if(typeof window !== 'undefined')
+    {
+        if (url && duration) {
+          localStorage.setItem("audioUrl",url)
+          localStorage.setItem("audioDuration",duration.toString())
+        }
+    }
+    
+  }, [url, duration]);
 
   return (
     <div className='flex flex-col justify-center min-h-screen items-center gap-y-2'>

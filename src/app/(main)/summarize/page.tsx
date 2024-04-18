@@ -34,7 +34,12 @@ const SummarizePage = () => {
 
   const saveSummarizeToLocalStorage = () => {
 
-    localStorage.setItem("summarize",JSON.stringify(responses))
+    if (typeof window !== 'undefined') {
+
+      localStorage.setItem("summarize",JSON.stringify(responses))
+
+    }
+   
 
   }
 
