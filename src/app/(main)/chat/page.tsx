@@ -130,7 +130,7 @@ const ChatPage = () => {
 
   return (
     <div className="px-4 lg:px-8 mt-4">
-        {messages && <Link href={'/summarize'}>Generar Resumen</Link>}
+        {messages && <Link href={'/summarize'} className='mb-4'>,<Button>Generar Resumen</Button> </Link>}
         <Form {...ScrapeForm}>
             <form 
                 onSubmit={ScrapeForm.handleSubmit(onScrapeSubmit)}
