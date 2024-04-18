@@ -11,25 +11,25 @@ const SummarizePage = () => {
 
  
 
-  let botResponses = localStorage.getItem("savedResponses")
+  //let botResponses = localStorage.getItem("savedResponses")
 
   let summarizeContent = ""
 
   useEffect(() => {
 
    
-        // Verificar si estamos en el entorno del cliente
-        if (typeof window !== 'undefined') {
-          const botResponses = localStorage.getItem('savedResponses');
-          if (botResponses) {
-            const savedResponsesArray = JSON.parse(botResponses);
-            const contentArray = savedResponsesArray.map((response: any) => response.content);
-            setResponses(contentArray);
-          }
-        }
+       // Verificar si estamos en el entorno del cliente
+    if (typeof window !== 'undefined') {
+      const botResponses = localStorage.getItem('savedResponses');
+      if (botResponses) {
+        const savedResponsesArray = JSON.parse(botResponses);
+        const contentArray = savedResponsesArray.map((response: any) => response.content);
+        setResponses(contentArray);
+      }
+    }
     
 
-  },[botResponses])
+  },[])
 
 
   const saveSummarizeToLocalStorage = () => {
